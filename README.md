@@ -21,7 +21,7 @@ SkillSwap is a full-stack learning-exchange application. Members can list skills
 - Match discovery based on complementary skills
 - Responsive React dashboard, registration and sign-in screens
 
-Exchange scheduling, notifications, production-grade token/session authentication, automated integration tests, database migrations, containerization and deployment remain to be completed.
+Basic exchange requests, participant-scoped exchange history, accept/decline/cancel actions and completion status are implemented. Notification inbox UI, automated integration tests, production-grade token/session authentication, database migrations, containerization and deployment remain to be completed.
 
 ## Repository structure
 
@@ -97,7 +97,7 @@ Passwords are BCrypt-hashed before persistence. The current development branch u
 
 ## Roadmap
 
-- [ ] Exchange request, acceptance, scheduling and status lifecycle
+- [x] Exchange request, scheduling, participant-scoped history and status lifecycle
 - [ ] Notification inbox and read/unread state
 - [ ] Production-ready authentication and session handling
 - [ ] More service, repository, controller and frontend tests
