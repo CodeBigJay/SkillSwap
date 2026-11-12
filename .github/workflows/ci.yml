@@ -13,9 +13,8 @@ jobs:
         with:
           distribution: temurin
           java-version: '24'
-          cache: maven
       - name: Run backend tests
-        run: ./mvnw --batch-mode clean verify
+        run: bash ./mvnw --batch-mode clean verify
   frontend:
     runs-on: ubuntu-latest
     defaults:
@@ -26,7 +25,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-          cache: npm
-          cache-dependency-path: frontend/package-lock.json
       - run: npm install
       - run: npm run build
