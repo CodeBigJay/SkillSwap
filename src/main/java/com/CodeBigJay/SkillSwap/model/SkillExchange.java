@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 @Entity @Table(name="skill_exchanges")
 public class SkillExchange {
  @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id;
- @ManyToOne(fetch=FetchType.LAZY,optional=false) @JoinColumn(name="requester_id",nullable=false) private User requester;
- @ManyToOne(fetch=FetchType.LAZY,optional=false) @JoinColumn(name="provider_id",nullable=false) private User provider;
+ @ManyToOne(optional=false) @JoinColumn(name="requester_id",nullable=false) private User requester;
+ @ManyToOne(optional=false) @JoinColumn(name="provider_id",nullable=false) private User provider;
  @Column(nullable=false,length=80) private String requestedSkill;
  @Column(nullable=false,length=80) private String offeredSkill;
  @Column(nullable=false) private LocalDateTime scheduledAt;
