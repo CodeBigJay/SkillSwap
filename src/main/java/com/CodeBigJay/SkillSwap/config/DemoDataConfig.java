@@ -38,7 +38,6 @@ public class DemoDataConfig {
     CommandLineRunner seedDemoMembers(UserRepository users, SkillRepository skills, PasswordEncoder encoder) {
         return args -> {
             // Shared sample password is deliberately limited to the opt-in local demo profile.
-            String passwordHash = encoder.encode("DemoPass123!");
             for (DemoMember member : MEMBERS) {
                 if (users.existsByUsernameIgnoreCase(member.username())) {
                     continue;
@@ -47,7 +46,7 @@ public class DemoDataConfig {
                 User user = new User();
                 user.setUsername(member.username());
                 user.setEmail(member.username().replace('.', '_') + "@skillswap.example.test");
-                user.setPassword(passwordHash);
+                user.setPassword(encoder.encode("DemoPass123!"));
                 user = users.save(user);
 
                 for (String name : member.offered()) {
