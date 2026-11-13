@@ -70,6 +70,20 @@ macOS/Linux:
 
 API base URL: `http://localhost:8080`.
 
+To populate the local database with **10 fictional demo members** and sample offered/wanted skills, start the backend with the opt-in demo profile:
+
+Windows:
+```powershell
+.\\mvnw.cmd spring-boot:run -Dspring-boot.run.profiles=demo
+```
+
+macOS/Linux:
+```bash
+./mvnw spring-boot:run -Dspring-boot.run.profiles=demo
+```
+
+The demo accounts use the username pattern `demo.<name>` (for example, `demo.alex`) and the shared local-only password `DemoPass123!`. These are fictional sample accounts, not real people. The demo seeder skips usernames that already exist and is only activated when the `demo` profile is explicitly enabled. **Never enable this profile in a public or production deployment.**
+
 ### 3. Start the frontend
 
 In a second terminal:
@@ -100,6 +114,7 @@ Passwords are BCrypt-hashed before persistence. The current development branch u
 - [x] Exchange request, scheduling, participant-scoped history and status lifecycle
 - [x] Notification inbox and read/unread state
 - [x] Notifications generated for exchange requests and status changes
+- [x] Opt-in local seed data for ten fictional demo members
 - [x] Unit tests for notification creation and member-scoped read updates
 - [ ] Production-ready authentication and session handling
 - [ ] Broader service, repository, controller and frontend integration tests
